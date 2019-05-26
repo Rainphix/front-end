@@ -33,34 +33,10 @@
         <div class="panel panel-default">
             <br>
             <br>
-            <!--<div class="panel-heading">查询条件</div>-->
-            <!--<div class="panel-body">-->
-                <!--<form id="formSearch" class="form-horizontal">-->
-                    <!--<div class="form-group" style="margin-top:15px">-->
-                        <!--<label class="control-label col-sm-1" for="txt_search_departmentname">部门名称</label>-->
-                        <!--<div class="col-sm-3">-->
-                            <!--<input type="text" class="form-control" id="txt_search_departmentname">-->
-                        <!--</div>-->
-                        <!--<label class="control-label col-sm-1" for="txt_search_statu">状态</label>-->
-                        <!--<div class="col-sm-3">-->
-                            <!--<input type="text" class="form-control" id="txt_search_statu">-->
-                        <!--</div>-->
-                        <!--<div class="col-sm-4" style="text-align:left;">-->
-                            <!--<button type="button" style="margin-left:50px" id="btn_query" class="btn btn-primary">查询</button>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</form>-->
-            <!--</div>-->
         </div>
 
         <div id="toolbar" class="btn-group">
-            <button id="btn_add" type="button" class="btn btn-default" onclick="Addrow()">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 新增
-            </button>
 
-            <button id="btn_delete" type="button" class="btn btn-default" onclick="Saverow()">
-                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> 保存
-            </button>
         </div>
         <table id="tb_departments">
         </table>
@@ -69,29 +45,16 @@
 </body>
 </html>
 <script>
-     window.operateEvents = {
-         "click #TableDelete":function (e,value,row,index) {
-
-             alert("确认删除？");
-             //$('#tb_depar;tments').bootstrapTable('removeAll')
-             $('#tb_departments').bootstrapTable('removeByUniqueId', row.id)
-         }
-     };
-
-    function Addrow()
-    {
-        $('#tb_departments').bootstrapTable('prepend',{
-            "id": "0",
-            "Position":"",
-            "Ins":"",
-            "Level":"",
-            "Desc":""
-        })
-    }
-
-     function Saverow() {
-         alert("保存成功");
-     }
+    window.operateEvents = {
+        "click #TableReceive":function (e,value,row,index) {
+            alert("已接收");
+            $('#tb_departments').bootstrapTable('removeByUniqueId', row.id)
+        },
+        "click #TableRefuse":function (e,value,row,index) {
+            alert("已拒绝");
+            $('#tb_departments').bootstrapTable('removeByUniqueId', row.id)
+        }
+    };
 
     $(function () {
         //1.初始化Table
@@ -101,14 +64,13 @@
         //2.初始化Button的点击事件
         var oButtonInit = new ButtonInit();
         oButtonInit.Init();
-
     });
     var TableInit = function () {
         var oTableInit = new Object();
         //初始化Table
         oTableInit.Init = function () {
             $('#tb_departments').bootstrapTable({
-                url: 'data3.json',                  //请求后台的URL（*）
+                url: 'data4.json',                  //请求后台的URL（*）
                 method: 'get',                      //请求方式（*）
                 toolbar: '#toolbar',                //工具按钮用哪个容器
                 striped: true,                      //是否显示行间隔色
@@ -121,8 +83,8 @@
                 pageNumber: 1,                      //初始化加载第一页，默认第一页
                 pageSize: "10",                     //每页的记录行数（*）
                 pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
-                search: false,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
-                strictSearch: true,
+                search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+                strictSearch: false,
                 queryParamsType: "",
                 showColumns: true,                  //是否显示所有的列
                 showRefresh: true,                  //是否显示刷新按钮
@@ -145,7 +107,7 @@
                 onEditableSave: function (field, row, oldValue, $el) {
                     $.ajax({
                         type: "POST",
-                        url: "data3.json",
+                        url: "data.json",
                         data: { strJson: JSON.stringify(row) },
                         success: function (data, status) {
                             if (status == "success") {
@@ -167,23 +129,32 @@
                         title: "操作",
                         events: operateEvents,
                         formatter: actionFormatter
+                    },
+                    {
+                        field: "Name",
+                        title: "姓名",
                     },{
-                    field: 'Position',
-                    title: '发布职位',
-                    editable:true,
-                }, {
-                    field: 'Ins',
-                    title: '学生所属院系',
-                    editable:true
-                }, {
-                    field: 'Level',
-                    title: '技能需求',
-                    editable:true,
-                }, {
-                    field: 'Desc',
-                    title: '描述',
-                    editable:true
-                }
+                        field: 'Id',
+                        title: '学号',
+                    }, {
+                        field: 'Ins',
+                        title: '院系',
+                    },{
+                        field: 'Pro',
+                        title: '院系',
+                    }, {
+                        field: 'Skill',
+                        title: '技能',
+                    }, {
+                        field: 'Level',
+                        title: '技能等级',
+                    }, {
+                        field: 'Award',
+                        title: '获奖经历',
+                    }, {
+                        field: 'Exp',
+                        title: '工作经历',
+                    }
                 ]
             })
         };
@@ -201,18 +172,12 @@
         return oInit;
     };
 
-
     function actionFormatter(value, row, index) {
-        result = "";
-        result += "<a href='javascript:;' id='TableDelete' class='btn btn-xs red' title='删除'><span class='glyphicon glyphicon-remove'></span></a>";
-        return result;
+        return[
+            '<button id="TableReceive" type="button" class="btn btn-default">同意</button>',
+            ' ',
+            '<button id="TableRefuse" type="button" class="btn btn-default">拒绝</button>'
+        ].join('')
     }
-
-
-    // function actionFormatter(value, row, index) {
-    //     return[
-    //         '<button id="TableDelete" type="button" class="btn btn-default">删除</button>'
-    //     ].join('')
-    // }
 
 </script>

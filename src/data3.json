@@ -1,107 +1,125 @@
 [
   {
+    "id": 1,
     "Position":"机器学习/数据挖掘算法工程师",
     "Ins":"计算机科学与技术学院",
     "Level":"Python/Java/C++",
     "Desc":"2 人"
   },
   {
-    "Position":"财务培训生",
-    "Ins":"计算机科学与技术学院",
+    "id": 2,
+    "Position":"体验设计师",
+    "Ins":"经济管理学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 3,
     "Position":"平台型产品经理(技术领域)",
     "Ins":"计算机科学与技术学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 4,
     "Position":"体验设计师",
     "Ins":"计算机科学与技术学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 5,
     "Position":"算法工程师-自然语言处理",
-    "Ins":"计算机科学与技术学院",
+    "Ins":"理学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 6,
     "Position":"财务培训生",
-    "Ins":"计算机科学与技术学院",
+    "Ins":"经济管理学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 7,
     "Position":"平台型产品经理(技术领域)",
     "Ins":"计算机科学与技术学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 8,
     "Position":"体验设计师",
     "Ins":"计算机科学与技术学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 9,
     "Position":"算法工程师-自然语言处理",
-    "Ins":"计算机科学与技术学院",
+    "Ins":"理学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 10,
     "Position":"机器学习/数据挖掘算法工程师",
-    "Ins":"计算机科学与技术学院",
+    "Ins":"理学院",
     "Level":"Python/Java/C++",
     "Desc":"2 人"
   },
   {
+    "id": 11,
     "Position":"财务培训生",
     "Ins":"计算机科学与技术学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 12,
     "Position":"平台型产品经理(技术领域)",
     "Ins":"计算机科学与技术学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 13,
     "Position":"体验设计师",
     "Ins":"计算机科学与技术学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 14,
     "Position":"算法工程师-自然语言处理",
     "Ins":"计算机科学与技术学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 15,
     "Position":"财务培训生",
     "Ins":"计算机科学与技术学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 16,
     "Position":"平台型产品经理(技术领域)",
     "Ins":"计算机科学与技术学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 17,
     "Position":"体验设计师",
     "Ins":"计算机科学与技术学院",
     "Level":"Python/Java/C++",
     "Desc":"3 人"
   },
   {
+    "id": 18,
     "Position":"算法工程师-自然语言处理",
     "Ins":"计算机科学与技术学院",
     "Level":"Python/Java/C++",
